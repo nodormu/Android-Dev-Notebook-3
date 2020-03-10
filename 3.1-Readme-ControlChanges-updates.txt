@@ -1,0 +1,11 @@
+1) updated dependencies out of alphas to as new as possible while still compiling to run app on systems between KitKat and 10. 
+Also updated Kotlin version to 1.3.70 for gradle since bundled version for studio is updated to 1.3.70.
+Updated classpath for google services to 4.3.3
+updated API and target build to 29 latest
+updated gradle plugin, and updated gradle to 6.2.2
+
+2) Changed lateinit vars in MainActivity to private late init.
+
+3) made Background Color a string in strings.xml rather than hard coded in activity_main.xml
+
+3) Apps will compile and run on phone/AVD with updates/corrections.

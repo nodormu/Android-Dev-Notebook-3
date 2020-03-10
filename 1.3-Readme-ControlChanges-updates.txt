@@ -1,0 +1,24 @@
+Change Control Logs. Imported project to studio 3.6.1.
+Android studio was installed using snap repos on a debian system.
+1) updated dependencies out of alphas to as new as possible while still compiling to run app on systems between KitKat and 10. 
+Also updated Kotlin version to 1.3.70 for gradle since bundled version for studio is updated to 1.3.70.
+Updated classpath for google services to 4.3.3
+updated API and target build to 29 latest
+updated gradle plugin, and updated gradle to 6.2.2
+
+2) In build.gradel(:app), I added the following code after all updates due to JVM target 1.6 versus 1.8 at the bottom of the android {}.
+android {
+
+...
+
+compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+3) App will build and load post tutorial, or if you are just comparing your work to master in order figure out what's wrong with it.

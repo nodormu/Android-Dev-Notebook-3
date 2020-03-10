@@ -1,0 +1,23 @@
+Change Control Logs. Imported project to studio 3.6.1.
+Android studio was installed using snap repos on a debian system.
+1) updated dependencies out of alphas to as new as possible while still compiling to run app on systems between KitKat and 10. 
+Also updated Kotlin version to 1.3.70 for gradle since bundled version for studio is updated to 1.3.70.
+updated gradle plugin, and updated gradle to 6.2.2
+API updated to 29 latest as well
+
+2) corrected import androidx.lifecycle.ViewModelProviders by changing it to import androidx.lifecycle.ViewModelProvider which requires removing the 's' from the end of the library import, the syntax usage and the '.of'
+Example of old syntax:  ViewModelProviders.of(this)
+Example of new syntax:  ViewModelProvider(owner: this)
+
+3) Added safe call operator to EggTimerFragment.kt due to Java null warning.
+old code:  notificationManager.createNotificationChannel(notificationChannel)
+corrected code:  notificationManager?.createNotificationChannel (notificationChannel)
+
+4) In NotificationUtils.kt, I made the immutable variables NOTIFICATION_ID, REQUEST_CODE, and FLAGS a private const val instead of a private val
+
+5) Commented out private val TOPIC in EggTimerFragment.kt because it's not used.
+
+6) In fragment_egg_timer, the following XML are Unknown attributes. The app still compiles and runs. Will need to look further into why these show as Unknown attributes, possibly an onClickListener instead of the Lambdas being placed in XML code. Not absoluetly sure at the moment.
+android:onItemSelected=
+android:selectedItemPosition=
+android:onCheckedChanged=
